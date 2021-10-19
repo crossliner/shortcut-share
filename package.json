@@ -1,0 +1,13 @@
+{
+  "name": "shortcut-share",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/crossliner/shortcut-share",
+  "author": "crossliner <crosslinerdev@gmail.com>",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "fastify": "^3.22.0",
+    "fastify-multipart": "^5.0.2"
+  }
+}
