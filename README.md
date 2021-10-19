@@ -1,2 +1,2 @@
 # Shortcut config
-https://www.icloud.com/shortcuts/6b705899d7914c7d9cbfa80d7bcbedfb
+https://www.icloud.com/shortcuts/89764dd3eac64a3ab3eed6b8a9d9af35
