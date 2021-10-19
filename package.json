@@ -8,6 +8,8 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "fastify": "^3.22.0",
-    "fastify-multipart": "^5.0.2"
+    "fastify-multipart": "^5.0.2",
+    "mime-types": "^2.1.33",
+    "randomstring": "^1.2.1"
   }
 }
