@@ -11,5 +11,9 @@
     "fastify-multipart": "^5.0.2",
     "mime-types": "^2.1.33",
     "randomstring": "^1.2.1"
+  },
+  "scripts": {
+    "build:deploy": "docker buildx build --platform linux/amd64,linux/arm64 --push ghcr.io/crossliner/shortcut-share .",
+    "build:docker": "docker build -t shortcut-share ."
   }
 }

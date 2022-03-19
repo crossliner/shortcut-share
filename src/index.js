@@ -1,4 +1,4 @@
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 const app = require("fastify")();
 
@@ -14,7 +14,6 @@ class NotFoundError extends Error {
     super();
     this.statusCode = 404;
     this.message = message;
-
   }
 }
 
@@ -23,12 +22,11 @@ class UnauthorizedError extends Error {
     super();
     this.statusCode = 401;
     this.message = message;
-
   }
 }
 
 app.post("/upload", async (req, res) => {
-  if (req.headers["x-upload-key"] !== process.env.UPLOAD_KEY) throw new UnauthorizedError("Invaild upload key");
+  if (req.headers["x-upload-key"] !== process.env.UPLOAD_KEY) throw new UnauthorizedError("invalid upload key");
 
   const file = await req.file();
   const data = await file.toBuffer();
@@ -37,7 +35,8 @@ app.post("/upload", async (req, res) => {
     charset: "alphanumeric",
     length: 8
   }) + extname(file.filename);
-  const filePath = join(__dirname, "../uploads", fileName);
+
+  const filePath = join("./", "uploads", fileName);
   await writeFile(filePath, data);
 
   return {
@@ -46,7 +45,8 @@ app.post("/upload", async (req, res) => {
 });
 
 app.get("/:file", async (req, res) => {
-  const filePath = join(__dirname, "../uploads" , req.params.file);
+  const filePath = join("./", "uploads", req.params.file);
+
   try { 
     await access(filePath)
     const mimeType = mimeTypes.lookup(req.params.file);
@@ -57,4 +57,4 @@ app.get("/:file", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT, "0.0.0.0");
