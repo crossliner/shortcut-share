@@ -13,7 +13,7 @@
     "randomstring": "^1.2.1"
   },
   "scripts": {
-    "build:deploy": "docker buildx build --platform linux/amd64,linux/arm64 --push ghcr.io/crossliner/shortcut-share .",
+    "build:deploy": "docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/crossliner/shortcut-share:latest --push .",
     "build:docker": "docker build -t shortcut-share ."
   }
 }
