@@ -40,7 +40,7 @@ app.post("/upload", async (req, res) => {
   await writeFile(filePath, data);
 
   return {
-    fileUrl: process.env.FILE_URL + fileName
+    fileUrl: "\u200b" + process.env.FILE_URL + fileName
   };
 });
 
